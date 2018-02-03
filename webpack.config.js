@@ -54,10 +54,11 @@ var getPlugins = function(){
         path:path.join(__dirname, "dist/js"),
         filename: (isProduction ? "[name]_[hash].js" : "[name].js"),
         chunkFilename: (isProduction ? "[name]_[hash].js" : "[name].js"),
-        publicPath:"/"
+        publicPath:"/js/"
       },
      
     devServer: {
+        contentBase: path.join(__dirname, "dist"),      
        inline: true,
        port: 80
     },

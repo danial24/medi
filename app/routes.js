@@ -1,38 +1,14 @@
-import App from './components/App';
-import AppPaths  from './utils/AppPaths';
+import AppPaths from './utils/AppPaths';
+import Loadable from 'react-loadable';
 
-function errorLoading(err) {
-  console.error('Dynamic page loading failed', err);
-}
-
-function loadRoute(cb) {
-  console.log("callBack");
-  console.log(cb);
-  return (module) => cb(null, module.default);
-}
-
-var childRoutesArray = [
-{
+export var childRoutesArray = [
+  {
     path: AppPaths.LANDING_PATH,
-    getComponent(location, cb) {
-      System.import(/* webpackChunkName: "HomeScreen" */ './components/container/HomeScreen')
-        .then(loadRoute(cb))
-        .catch(errorLoading);
-  }
-},
-{
-  path: '/detail',
-  getComponent(location, cb) {
-    System.import(/* webpackChunkName: "Listing" */ './components/container/Listing')
-      .then(loadRoute(cb))
-      .catch(errorLoading);
-}
-}
+    component: Loadable({
+      loader: () => import('./components/container/HomeScreen'),
+      loading: getloader
+    })
+  },
 ];
-export default {
-  component: App,
-  childRoutes: childRoutesArray,
-};
-
 
 

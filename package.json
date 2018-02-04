@@ -14,6 +14,7 @@
     "phrontend": "0.1.0-beta",
     "react": "^15.5.4",
     "react-dom": "^15.4.0",
+    "react-instantsearch": "^4.4.2",
     "react-loadable": "^5.3.1",
     "react-router-dom": "^4.2.2",
     "webpack": "^3.6.0",

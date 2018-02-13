@@ -30,18 +30,16 @@ export default class HomeScreen extends ContainerBase {
     render() {
         return (
             <div>
+                <h1 style={{textAlign:"center"}}>Servaid</h1>
                 <div>
                     <InstantSearch
                         appId="01OQ7GEEOR"
                         apiKey="1b66df875a6a370c8177ecb8473acdb5"
-                        indexName="getstarted_actors"
-                    >
+                        indexName="getstarted_actors">
                         <CurrentRefinements />
-                        <ClearAll />
                         <SearchBox />
                         <RefinementList attributeName="rating" />
                         <Hits hitComponent={Product} />
-                        <Pagination />
                     </InstantSearch>
                 </div>
             </div>);
